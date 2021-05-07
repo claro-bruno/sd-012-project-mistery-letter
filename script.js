@@ -76,3 +76,13 @@ function validateLetter() {
 }
 
 gerarTexto.addEventListener('click', validateLetter);
+
+document.addEventListener('click', (event) => {
+  const allSpans = document.querySelectorAll('span');
+  for (let i = 0; i < allSpans.length; i += 1) {
+    if (event.target === allSpans[i]) {
+      event.target.removeAttribute('class');
+      addClasses(event.target);
+    }
+  }
+});
