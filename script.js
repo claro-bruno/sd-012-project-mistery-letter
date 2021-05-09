@@ -25,7 +25,8 @@ function randomF(max) {
 }
 // Cria uma array randomica forçando possuir pelo menos 1 elemento obrigatório
 function randomArray() {
-  while (let loop = true) {
+  const loop = true;
+  while (loop) {
     const array = [randomN(1), randomN(1), randomN(1), randomN(1)];
     let t = 0;
     for (let index2 = 0; index2 < array.length; index2 += 1) {
@@ -36,7 +37,7 @@ function randomArray() {
 }
 
 // Gera e acrescenta classes a todos os <spans> do documento de forma randômica
-function putRandomclass (elmnt){
+function putRandomclass(elmnt) {
   const arrayWordstyle = randomArray();
   for (let index = 0; index < (arrayWordstyle.length); index += 1) {
     if (arrayWordstyle[index] !== 0) {
@@ -53,7 +54,7 @@ function randomize() {
 }
 
 // Executa a ação de gerar a carta e contador conforme os requisitos
-function createSpan(elmnt,index){
+function createSpan(elmnt, index) {
   const word = elmnt[index].replace(/\s+/g, '');
   if (word !== '') { letterPlace.innerHTML += `<span>${word}</span>`; }
   if (index !== (elmnt.length - 1)) { letterPlace.innerHTML += ' '; }
