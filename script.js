@@ -48,14 +48,51 @@ function join(array, char) {
   return string;
 }
 
+const styleClasses = [
+  'newspaper',
+  'magazine1',
+  'magazine2',
+  'newspaper',
+  'magazine1',
+  'magazine2',
+];
+const sizeClasses = [
+  'medium',
+  'big',
+  'reallybig',
+  'medium',
+  'big',
+  'reallybig',
+];
+const rotateClasses = [
+  'rotateleft',
+  'rotateright',
+  'rotateleft',
+  'rotateright',
+];
+const slopeClasses = ['skewleft', 'skewright', 'skewleft', 'skewright'];
+
+function randomNumber(min, max) {
+  return Math.round(Math.random() * (max - min) + min);
+}
+
+function classDraw() {
+  const classStyle = styleClasses[randomNumber(0, 5)];
+  const classSize = sizeClasses[randomNumber(0, 5)];
+  const classRotate = rotateClasses[randomNumber(0, 3)];
+  const classSlope = slopeClasses[randomNumber(0, 3)];
+  return `${classStyle} ${classSize} ${classRotate} ${classSlope}`;
+}
+
 function toSpan(string) {
-  return `<span>${string}</span>`;
+  const classes = classDraw();
+  return `<span class="${classes}">${string}</span>`;
 }
 
 function generateSpanWords(text) {
   const arrayText = splitString(text, ' ');
   const arraySpan = map(arrayText, toSpan);
-  const spanText = join(arraySpan, '');
+  const spanText = join(arraySpan, ' ');
   return spanText;
 }
 
