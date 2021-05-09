@@ -2,6 +2,7 @@ createLetterBtn = document.getElementById('criar-carta');
 letterPlace = document.getElementById('carta-gerada');
 letterText = document.getElementById('carta-texto');
 arrayStyle = ['newspaper magazine1 magazine2', 'medium big reallybig', 'rotateleft rotateright', 'skewleft skewright'];
+letterCount = document.getElementById('carta-contador');
 
 
 function checkEmpty(letter) {
@@ -14,7 +15,6 @@ function checkEmpty(letter) {
 }
 
 function createSpan() {
-  console.log(checkEmpty(letterText.value));
   if (checkEmpty(letterText.value)) {
     letterPlace.innerText='';
     let letterWords = letterText.value.split(' ');
@@ -24,6 +24,7 @@ function createSpan() {
       if (index != (letterWords.length - 1)) { letterPlace.innerHTML = letterPlace.innerHTML + ' ';}
     }
   }
+  letterCount.innerText = letterPlace.innerText.split(' ').length;
 }
 
 createLetterBtn.addEventListener('click', createSpan);

@@ -1,55 +1,55 @@
-.newspaper{
+.newspaper {
   background-color: antiquewhite;
-  font-family: 'Times New Roman';
-  font-weight: bold;
+  font-family: Times New Roman,sans-serif;
+  font-weight: 600;
 }
 
-.magazine1{
+.magazine1 {
   background-color: teal;
   color: white;
-  font-family: Verdana;
+  font-family: Verdana,'sans-serif';
   font-weight: 900;
   text-transform: uppercase;
 }
 
-.magazine2{
+.magazine2 {
   background-image: url('images/pink-pattern.png');
   color: fuchsia;
-  font-family: Verdana;
+  font-family: Verdana,'sans-serif';
   font-weight: 900;
 }
 
-.medium{
+.medium {
   font-size: 20px;
   padding: 8px;
 }
 
-.big{
+.big {
   font-size: 30px;
   padding: 10px;
 }
 
-.reallybig{
+.reallybig {
   font-size: 40px;
   padding: 15px;
 }
 
-.rotateleft{
+.rotateleft {
   display: inline-block;
   transform: rotate(-5deg);
 }
 
-.rotateright{
+.rotateright {
   display: inline-block;
   transform: rotate(5deg);
 }
 
-.skewleft{
+.skewleft {
   display: inline-block;
   transform: skewX(10deg);
 }
 
-.skewright{
+.skewright {
   display: inline-block;
   transform: skewX(-10deg);
 }
