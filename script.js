@@ -63,8 +63,17 @@ const btnCriarCarta = document.createElement('button');
 btnCriarCarta.id = 'criar-carta';
 btnCriarCarta.innerHTML = 'Criar Carta';
 
+function failRender() {
+  const textFail = 'Por favor, digite o conteúdo da carta.';
+  cartaGerada.innerHTML = textFail;
+}
+
 function renderCard() {
   const text = cartaTexto.value;
+
+  if (!text || text === ' ') {
+    return failRender();
+  }
   const spanText = generateSpanWords(text);
   cartaGerada.innerHTML = spanText;
 }
