@@ -1,5 +1,7 @@
+const createdLetter = 'carta-gerada';
+
 function removeLetter() {
-  const parentElement = document.getElementById('carta-gerada');
+  const parentElement = document.getElementById(createdLetter);
   const elementsToRemove = document.querySelectorAll('span');
 
   for (let index = 0; index < elementsToRemove.length; index += 1) {
@@ -8,22 +10,32 @@ function removeLetter() {
 }
 
 function createLetter() {
+  removeLetter();
+  const inputText = document.getElementById('carta-texto').value;
+  const splitedText = inputText.split(' ');
+  const parentElement = document.getElementById(createdLetter);
+
+  for (let index = 0; index < splitedText.length; index += 1) {
+    const word = document.createElement('span');
+    word.innerHTML = splitedText[index];
+
+    parentElement.appendChild(word);
+  }
+}
+
+function eventClickButton() {
   const createButton = document.getElementById('criar-carta');
 
   createButton.addEventListener('click', () => {
-    removeLetter();
+    const inputText = document.getElementById('carta-texto');
 
-    const inputText = document.getElementById('carta-texto').value;
-    const splitedText = inputText.split(' ');
-    const parentElement = document.getElementById('carta-gerada');
-
-    for (let index = 0; index < splitedText.length; index += 1) {
-      const word = document.createElement('span');
-      word.innerHTML = splitedText[index];
-
-      parentElement.appendChild(word);
+    if (inputText.value === '' || inputText.value === ' ') {
+      const parentElement = document.getElementById(createdLetter);
+      parentElement.innerHTML = 'Por favor, digite o conteúdo da carta.';
+    } else {
+      createLetter();
     }
   });
 }
 
-createLetter();
+eventClickButton();
