@@ -36,16 +36,26 @@ function randomArray() {
   }
 }
 
-// Gera e acrescenta classes a todos os <spans> do documento de forma randômica
+// Apaga classes vigentes e seleciona as classes dos requisitos do projeto de maneira randômica.
 function putRandomclass(elmnt) {
   const arrayWordstyle = randomArray();
+  const receiver = elmnt;
+  receiver.className = '';
   for (let index = 0; index < (arrayWordstyle.length); index += 1) {
     if (arrayWordstyle[index] !== 0) {
-      elmnt.classList.add(arrayStyle[index][randomF(arrayStyle[index].length)]);
+      receiver.classList.add(arrayStyle[index][randomF(arrayStyle[index].length)]);
     }
   }
 }
 
+// Altera as classes de uma <SPAN> selecionada conforme requisitos, checando se não é <P>
+function changeRandomclass(event) {
+  if (event.target.tagName !== 'P') {
+    putRandomclass(event.target);
+  }
+}
+
+// Acrescenta classes randômicas a todas as palavras
 function randomize() {
   const word = document.getElementsByTagName('span');
   for (let index = 0; index < (word.length); index += 1) {
@@ -73,3 +83,4 @@ function createLetter() {
 }
 
 createLetterBtn.addEventListener('click', createLetter);
+letterPlace.addEventListener('click', changeRandomclass);
