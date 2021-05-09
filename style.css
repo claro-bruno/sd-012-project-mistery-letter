@@ -34,3 +34,23 @@
   font-size: 40px;
   padding: 15px;
 }
+
+.rotateleft {
+  display: inline-block;
+  transform: rotate(-5deg);
+}
+
+.rotateright {
+  display: inline-block;
+  transform: rotate(5deg);
+}
+
+.skewleft {
+  display: inline-block;
+  transform: skewX(10deg);
+}
+
+.skewright {
+  display: inline-block;
+  transform: skewX(-10deg);
+}
