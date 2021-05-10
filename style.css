@@ -14,12 +14,17 @@ main {
   margin: auto;
   width: 95%;
   border-radius: 25px;
-  padding: 1px;
+  padding: 20px;
+}
+
+p {
+  margin-top: 40px;
 }
 
 #carta-texto {
   width: 250px;
   text-align: center;
+  margin: 10px;
 }
 
 .newspaper {

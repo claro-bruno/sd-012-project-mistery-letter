@@ -27,7 +27,8 @@ function removeLetter() {
 
 function eventClickWord(element) {
   element.addEventListener('click', (event) => {
-    event.target.className = '';
+    const clickedSpan = event.target;
+    clickedSpan.className = '';
     createClassList(event.target);
   });
 }
@@ -47,6 +48,13 @@ function createLetter() {
   }
 }
 
+function countWords() {
+  const wordSpan = document.querySelectorAll('span');
+  const counter = document.getElementById('carta-contador');
+
+  counter.innerHTML = wordSpan.length;
+}
+
 function eventClickButton() {
   const createButton = document.getElementById('criar-carta');
 
@@ -58,6 +66,7 @@ function eventClickButton() {
       parentElement.innerHTML = 'Por favor, digite o conteúdo da carta.';
     } else {
       createLetter();
+      countWords();
     }
   });
 }
