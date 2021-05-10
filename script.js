@@ -35,19 +35,6 @@ function map(array, callback) {
   return arrayResult;
 }
 
-function join(array, char) {
-  let string = '';
-
-  for (let index = 0; index < array.length; index += 1) {
-    if (index === array.length - 1) {
-      string += array[index];
-      break;
-    }
-    string += array[index] + char;
-  }
-  return string;
-}
-
 const styleClasses = [
   'newspaper',
   'magazine1',
@@ -86,14 +73,27 @@ function classDraw() {
 
 function toSpan(string) {
   const classes = classDraw();
-  return `<span class="${classes}">${string}</span>`;
+  const span = document.createElement('span');
+  span.innerHTML = string;
+  span.className = classes;
+  return span;
+}
+
+function switchClass(event) {
+  const element = event.target;
+  element.className = classDraw();
 }
 
 function generateSpanWords(text) {
   const arrayText = splitString(text, ' ');
   const arraySpan = map(arrayText, toSpan);
-  const spanText = join(arraySpan, ' ');
-  return spanText;
+  const croqui = document.createElement('p');
+
+  for (let index = 0; index < arraySpan.length; index += 1) {
+    arraySpan[index].addEventListener('click', switchClass);
+    croqui.appendChild(arraySpan[index]);
+  }
+  return croqui.innerHTML;
 }
 
 const btnCriarCarta = document.createElement('button');
@@ -111,11 +111,8 @@ function renderCard() {
   if (!text || text === ' ') {
     return failRender();
   }
-  const spanText = generateSpanWords(text);
-  cartaGerada.innerHTML = spanText;
+  cartaGerada.innerHTML = generateSpanWords(text);
 }
 
 btnCriarCarta.addEventListener('click', renderCard);
 cartaTexto.insertAdjacentElement('afterend', btnCriarCarta);
-
-// console.log(generateSpanWords('hello word js'));
