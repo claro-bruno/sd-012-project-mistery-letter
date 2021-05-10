@@ -2,6 +2,10 @@ span {
   margin-left: 1em;
 }
 
+#carta-contador {
+  display: inline-block;
+}
+
 .newspaper {
   background-color: antiquewhite;
   font-family: 'Times New Roman', Times, serif;
