@@ -1,6 +1,10 @@
 const content = document.getElementById('content');
 content.innerHTML = '';
 
+const title = document.createElement('h1');
+title.innerHTML = 'Carta Misteriosa';
+content.appendChild(title);
+
 const cartaTexto = document.createElement('input');
 cartaTexto.id = 'carta-texto';
 content.appendChild(cartaTexto);
@@ -10,7 +14,7 @@ cartaGerada.id = 'carta-gerada';
 content.appendChild(cartaGerada);
 
 const contadorContainer = document.createElement('div');
-contadorContainer.innerHTML = 'Quantidade de palavras usadas:';
+contadorContainer.innerHTML = 'Quantidade de palavras usadas';
 content.appendChild(contadorContainer);
 
 const cartaContador = document.createElement('p');
