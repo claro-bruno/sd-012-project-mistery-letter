@@ -42,6 +42,10 @@ span:hover {
   cursor: pointer;
 }
 
+span::selection {
+  background-color: transparent;
+}
+
 input {
   width: 70%;
   background-color: rgba(139, 21, 185, 0.5);

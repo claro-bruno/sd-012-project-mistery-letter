@@ -7,6 +7,7 @@ content.appendChild(title);
 
 const cartaTexto = document.createElement('input');
 cartaTexto.id = 'carta-texto';
+cartaTexto.spellcheck = false;
 content.appendChild(cartaTexto);
 
 const cartaGerada = document.createElement('p');
