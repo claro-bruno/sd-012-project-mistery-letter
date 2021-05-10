@@ -9,6 +9,16 @@ const cartaGerada = document.createElement('p');
 cartaGerada.id = 'carta-gerada';
 content.appendChild(cartaGerada);
 
+const contadorContainer = document.createElement('div');
+contadorContainer.innerHTML = 'Quantidade de palavras usadas:';
+content.appendChild(contadorContainer);
+
+const cartaContador = document.createElement('p');
+cartaContador.id = 'carta-contador';
+contadorContainer.appendChild(cartaContador);
+
+let count = 0;
+
 function splitString(string, char) {
   const array = [];
   let word = '';
@@ -33,6 +43,19 @@ function map(array, callback) {
     arrayResult.push(result);
   }
   return arrayResult;
+}
+
+function join(array, char) {
+  let string = '';
+
+  for (let index = 0; index < array.length; index += 1) {
+    if (index === array.length - 1) {
+      string += array[index];
+      break;
+    }
+    string += array[index] + char;
+  }
+  return string;
 }
 
 const styleClasses = [
@@ -73,27 +96,14 @@ function classDraw() {
 
 function toSpan(string) {
   const classes = classDraw();
-  const span = document.createElement('span');
-  span.innerHTML = string;
-  span.className = classes;
-  return span;
-}
-
-function switchClass(event) {
-  const element = event.target;
-  element.className = classDraw();
+  return `<span class="${classes}">${string}</span>`;
 }
 
 function generateSpanWords(text) {
   const arrayText = splitString(text, ' ');
   const arraySpan = map(arrayText, toSpan);
-  const croqui = document.createElement('p');
-
-  for (let index = 0; index < arraySpan.length; index += 1) {
-    arraySpan[index].addEventListener('click', switchClass);
-    croqui.appendChild(arraySpan[index]);
-  }
-  return croqui.innerHTML;
+  const spanText = join(arraySpan, ' ');
+  return spanText;
 }
 
 const btnCriarCarta = document.createElement('button');
@@ -105,13 +115,33 @@ function failRender() {
   cartaGerada.innerHTML = textFail;
 }
 
+function switchClass(event) {
+  const element = event.target;
+  element.className = classDraw();
+}
+
+function addEventInSpan() {
+  const spanArray = document.getElementsByTagName('span');
+  count = spanArray.length;
+  for (let index = 0; index < spanArray.length; index += 1) {
+    spanArray[index].addEventListener('click', switchClass);
+  }
+}
+
+function countWords() {
+  cartaContador.innerHTML = count;
+}
+
 function renderCard() {
   const text = cartaTexto.value;
 
   if (!text || text === ' ') {
     return failRender();
   }
-  cartaGerada.innerHTML = generateSpanWords(text);
+  const spanText = generateSpanWords(text);
+  cartaGerada.innerHTML = spanText;
+  addEventInSpan();
+  countWords();
 }
 
 btnCriarCarta.addEventListener('click', renderCard);
