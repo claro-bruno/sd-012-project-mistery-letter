@@ -1,5 +1,21 @@
 const createdLetter = 'carta-gerada';
 
+const styleGroup = {
+  style: ['newspaper', 'magazine1', 'magazine2', 'newspaper', 'magazine1', 'magazine2'],
+  size: ['medium', 'big', 'reallybig', 'medium', 'big', 'reallybig'],
+  rotation: ['rotateleft', 'rotateright', 'rotateleft', 'rotateright', 'rotateleft', 'rotateright'],
+  skew: ['skewleft', 'skewright', 'skewleft', 'skewright', 'skewleft', 'skewright'],
+};
+
+function createClassList(element) {
+  const keys = ['style', 'size', 'rotation', 'skew'];
+
+  for (let index = 0; index < keys.length; index += 1) {
+    const randonStyle = Math.floor(Math.random() * 6);
+    element.classList.add(styleGroup[keys[index]][randonStyle]);
+  }
+}
+
 function removeLetter() {
   const parentElement = document.getElementById(createdLetter);
   const elementsToRemove = document.querySelectorAll('span');
@@ -7,6 +23,13 @@ function removeLetter() {
   for (let index = 0; index < elementsToRemove.length; index += 1) {
     parentElement.removeChild(elementsToRemove[index]);
   }
+}
+
+function eventClickWord(element) {
+  element.addEventListener('click', (event) => {
+    event.target.className = '';
+    createClassList(event.target);
+  });
 }
 
 function createLetter() {
@@ -18,8 +41,9 @@ function createLetter() {
   for (let index = 0; index < splitedText.length; index += 1) {
     const word = document.createElement('span');
     word.innerHTML = splitedText[index];
-
+    createClassList(word);
     parentElement.appendChild(word);
+    eventClickWord(word);
   }
 }
 
