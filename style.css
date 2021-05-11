@@ -21,6 +21,10 @@ p {
   margin-top: 40px;
 }
 
+span {
+  display: inline-block;
+}
+
 #carta-texto {
   width: 250px;
   text-align: center;
