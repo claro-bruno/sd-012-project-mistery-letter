@@ -7,7 +7,7 @@ let letterSplited;
 buttonCreate.addEventListener('click', () => {
   letterSplited = input.value.split(' ');
   for (let index = 0; index < letterSplited.length; index += 1) {
-    if (input.value.length === 0) {
+    if (geneteLetter.innerHTML === "") {
       geneteLetter.innerHTML = 'Por favor, digite o conteúdo da carta.'
     }
     const createSpan = document.createElement('span');
