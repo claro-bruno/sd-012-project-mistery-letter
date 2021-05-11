@@ -2,7 +2,6 @@ const input = document.getElementById('carta-texto');
 const buttonCreate = document.getElementById('criar-carta');
 const geneteLetter = document.getElementById('carta-gerada');
 
-
 const styleClass = ['newspaper', 'magazine1', 'magazine2'];
 const sizeClass = ['medium', 'big', 'reallybig'];
 const rotationClass = ['rotateleft', 'rotateright'];
