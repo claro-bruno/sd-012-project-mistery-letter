@@ -5,7 +5,7 @@ const classes = {
   estilo: ['magazine1', 'magazine2'],
   tamanho: ['medium', 'big', 'reallybig'],
   rotacao: ['rotateleft', 'rotateright'],
-  inclinacao: ['skewleft', 'skewright']
+  inclinacao: ['skewleft', 'skewright'],
 };
 let palavra = '';
 
@@ -19,10 +19,10 @@ function removeCarta() {
 function criarSpan() {
   const trecho = document.createElement('span');
   trecho.innerText = palavra;
-  for (let index in classes) {
+  for (let key in classes) {
     let numeroMagico = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-    if (numeroMagico < classes[index].length) {
-      trecho.classList.add(classes[index][numeroMagico]);
+    if (numeroMagico < classes[key].length) {
+      trecho.classList.add(classes[key][numeroMagico]);
     }
   }
   paragrafoCartaGerada.appendChild(trecho);
@@ -53,3 +53,15 @@ function gerarCarta() {
 }
 
 botaoCriarCarta.addEventListener('click', gerarCarta);
+
+function mudarClasses(event) {
+  event.target.className = '';
+  for (let key in classes) {
+    let numeroMagico = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+    if (numeroMagico < classes[key].length) {
+      event.target.classList.add(classes[key][numeroMagico]);
+    }
+  }
+}
+
+paragrafoCartaGerada.addEventListener('click', mudarClasses);
