@@ -31,7 +31,14 @@ function criarCarta() {
   }
 }
 
-botaoCriarCarta.addEventListener('click', function() {
-  removeCarta();
-  criarCarta();
-});
+function gerarCarta() {
+  if (inputCartaTexto.value === '' || inputCartaTexto.value.trim().length === 0) {
+    paragrafoCartaGerada.innerText = 'Por favor, digite o conteúdo da carta.';
+  } else {
+    paragrafoCartaGerada.innerText = '';
+    removeCarta();
+    criarCarta();
+  }
+}
+
+botaoCriarCarta.addEventListener('click', gerarCarta);
