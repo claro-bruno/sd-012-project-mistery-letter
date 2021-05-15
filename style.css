@@ -2,13 +2,25 @@ h1 {
   text-align: center;
 }
 
+#carta-texto {
+  margin-left: 20px;
+}
+
+#criar-carta {
+  margin-left: 20px;
+}
+
 #carta-gerada {
-  padding: 50px;
+  padding: 30px;
 }
 
 #carta-contador {
-  padding-top: 40px;
+  padding-top: 20px;
   padding-left: 50px;
+}
+
+span {
+  display: inline-block;
 }
 
 .newspaper {
