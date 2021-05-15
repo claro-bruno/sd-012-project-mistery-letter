@@ -1,6 +1,7 @@
 const inputCartaTexto = document.querySelector('#carta-texto');
 const paragrafoCartaGerada = document.querySelector('#carta-gerada');
 const botaoCriarCarta = document.querySelector('#criar-carta');
+const contadorDePalavras = document.querySelector('#carta-contador');
 const classes = {
   estilo: ['magazine1', 'magazine2'],
   tamanho: ['medium', 'big', 'reallybig'],
@@ -50,6 +51,8 @@ function gerarCarta() {
     removeCarta();
     criarCarta();
   }
+  let numeroDePalavras = document.querySelectorAll('span').length.toString();
+  contadorDePalavras.innerText = 'Número de palavras na carta: ' + numeroDePalavras;
 }
 
 botaoCriarCarta.addEventListener('click', gerarCarta);
