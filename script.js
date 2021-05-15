@@ -1,27 +1,37 @@
 const inputCartaTexto = document.querySelector('#carta-texto');
 const paragrafoCartaGerada = document.querySelector('#carta-gerada');
 const botaoCriarCarta = document.querySelector('#criar-carta');
+let palavra = '';
+
+function removeCarta() {
+  const palavras = document.querySelectorAll('span');
+  for (let index = 0; index < palavras.length; index += 1) {
+    paragrafoCartaGerada.removeChild(palavras[index]);
+  }
+}
+
+function criarSpan() {
+  const trecho = document.createElement('span');
+  trecho.innerText = palavra;
+  paragrafoCartaGerada.appendChild(trecho);
+  trecho.style.padding = '5px';
+  palavra = '';
+}
 
 function criarCarta() {
-  let palavra = '';
   for (let index = 0; index < inputCartaTexto.value.length; index += 1) {
-     if (index === (inputCartaTexto.value.length - 1)) {
+    if (index === (inputCartaTexto.value.length - 1)) {
       palavra += inputCartaTexto.value[index];
-      let trecho = document.createElement('span');
-      trecho.innerText = palavra;
-      paragrafoCartaGerada.appendChild(trecho);
-      trecho.style.padding = '5px';
-      palavra = '';
+      criarSpan();
     } else if (inputCartaTexto.value[index] !== ' ') {
       palavra += inputCartaTexto.value[index];
     } else {
-      let trecho = document.createElement('span');
-      trecho.innerText = palavra;
-      paragrafoCartaGerada.appendChild(trecho);
-      trecho.style.padding = '5px';
-      palavra = '';
+      criarSpan();
     }
   }
 }
 
-botaoCriarCarta.addEventListener('click', criarCarta);
+botaoCriarCarta.addEventListener('click', function() {
+  removeCarta();
+  criarCarta();
+});
