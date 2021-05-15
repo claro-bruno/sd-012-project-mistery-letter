@@ -1,6 +1,12 @@
 const inputCartaTexto = document.querySelector('#carta-texto');
 const paragrafoCartaGerada = document.querySelector('#carta-gerada');
 const botaoCriarCarta = document.querySelector('#criar-carta');
+const classes = {
+  estilo: ['magazine1', 'magazine2'],
+  tamanho: ['medium', 'big', 'reallybig'],
+  rotacao: ['rotateleft', 'rotateright'],
+  inclinacao: ['skewleft', 'skewright']
+};
 let palavra = '';
 
 function removeCarta() {
@@ -13,8 +19,13 @@ function removeCarta() {
 function criarSpan() {
   const trecho = document.createElement('span');
   trecho.innerText = palavra;
+  for (let index in classes) {
+    let numeroMagico = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+    if (numeroMagico < classes[index].length) {
+      trecho.classList.add(classes[index][numeroMagico]);
+    }
+  }
   paragrafoCartaGerada.appendChild(trecho);
-  trecho.style.padding = '5px';
   palavra = '';
 }
 
