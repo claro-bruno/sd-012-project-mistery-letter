@@ -1,3 +1,16 @@
+h1 {
+  text-align: center;
+}
+
+#carta-gerada {
+  padding: 50px;
+}
+
+#carta-contador {
+  padding-top: 40px;
+  padding-left: 50px;
+}
+
 .newspaper {
   background-color: antiquewhite;
   font-family: Times New Roman;

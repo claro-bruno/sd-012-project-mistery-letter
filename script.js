@@ -20,6 +20,7 @@ function removeCarta() {
 function criarSpan() {
   const trecho = document.createElement('span');
   trecho.innerText = palavra;
+  trecho.style.margin = '40px';
   for (let key in classes) {
     let numeroMagico = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
     if (numeroMagico < classes[key].length) {
@@ -52,7 +53,7 @@ function gerarCarta() {
     criarCarta();
   }
   let numeroDePalavras = document.querySelectorAll('span').length.toString();
-  contadorDePalavras.innerText = 'Número de palavras na carta: ' + numeroDePalavras;
+  contadorDePalavras.innerText = numeroDePalavras;
 }
 
 botaoCriarCarta.addEventListener('click', gerarCarta);
