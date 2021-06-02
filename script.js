@@ -4,7 +4,10 @@ const textLetter = document.querySelector('#carta-gerada');
 
 function generateLetter() {
   textButton.addEventListener('click', () => {
+    textLetter.innerText = '';
     const inputValue = textInput.value.split(' ');
+    if (textInput.value === '' || inputValue[inputValue.length - 1] === '') 
+    return textLetter.innerText = 'Por favor, digite o conteúdo da carta.';
     inputValue.forEach((element) => {
       const novoSpan = document.createElement('span');
       novoSpan.innerText = element;
@@ -14,3 +17,7 @@ function generateLetter() {
 }
 
 generateLetter();
+
+const text = 'aa';
+
+console.log(text.split('a'));
