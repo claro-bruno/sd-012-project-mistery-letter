@@ -2,6 +2,10 @@ body {
   text-align: center;
 }
 
+span {
+  display: inline-block;
+}
+
 .newspaper {
   background-color: antiquewhite;
   font-family: Times New Roman, Times, serif;

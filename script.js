@@ -12,6 +12,8 @@ function randomNumber2() {
 }
 
 function addingClasses(element) {
+  const elemento = element;
+  elemento.className = '';
   element.classList
     .add(
       styleClasses[randomNumber2()],
@@ -19,6 +21,14 @@ function addingClasses(element) {
       rotateClasses[randomNumber2()],
       skewClasses[randomNumber2()],
     );
+}
+
+function changeWords(elemento) {
+  elemento.forEach((element) => {
+    element.addEventListener(('click'), () => {
+      addingClasses(element);
+    });
+  });
 }
 
 function generateLetter() {
@@ -37,6 +47,8 @@ function generateLetter() {
       addingClasses(novoSpan);
       textLetter.appendChild(novoSpan);
     });
+    const spans = document.querySelectorAll('span');
+    changeWords(spans);
   });
 }
 
