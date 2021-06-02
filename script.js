@@ -11,6 +11,10 @@ function randomNumber2() {
   return Math.round(Math.random() * 2);
 }
 
+function randomNumber1() {
+  return Math.round(Math.random());
+}
+
 function addingClasses(element) {
   const elemento = element;
   elemento.className = '';
@@ -18,8 +22,8 @@ function addingClasses(element) {
     .add(
       styleClasses[randomNumber2()],
       sizeClasses[randomNumber2()],
-      rotateClasses[randomNumber2()],
-      skewClasses[randomNumber2()],
+      rotateClasses[randomNumber1()],
+      skewClasses[randomNumber1()],
     );
 }
 
